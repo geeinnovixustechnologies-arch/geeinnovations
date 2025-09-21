@@ -6,12 +6,12 @@ import { authOptions } from "@/lib/auth";
 // In-memory settings store (in production, you'd use a database)
 let settings = {
   general: {
-    siteName: "Gee Innovations",
+    siteName: "GEE INNOVIXUS",
     siteDescription:
       "Leading academic project consultancy and research publication services",
-    siteUrl: "https://geeinnovations.com",
-    contactEmail: "contact@geeinnovations.com",
-    supportEmail: "support@geeinnovations.com",
+    siteUrl: "https://geeinnovixus.com",
+    contactEmail: "contact@geeinnovixus.com",
+    supportEmail: "support@geeinnovixus.com",
     timezone: "UTC",
     language: "en",
     currency: "USD",
@@ -21,8 +21,8 @@ let settings = {
     smtpPort: 587,
     smtpUser: "",
     smtpPassword: "",
-    fromEmail: "noreply@geeinnovations.com",
-    fromName: "Gee Innovations",
+    fromEmail: "noreply@geeinnovixus.com",
+    fromName: "GEE INNOVIXUS",
     enableNotifications: true,
   },
   security: {
@@ -127,12 +127,12 @@ export async function DELETE(req) {
     // Reset to default settings
     settings = {
       general: {
-        siteName: "Gee Innovations",
+        siteName: "GEE INNOVIXUS",
         siteDescription:
           "Leading academic project consultancy and research publication services",
-        siteUrl: "https://geeinnovations.com",
-        contactEmail: "contact@geeinnovations.com",
-        supportEmail: "support@geeinnovations.com",
+        siteUrl: "https://geeinnovixus.com",
+        contactEmail: "contact@geeinnovixus.com",
+        supportEmail: "support@geeinnovixus.com",
         timezone: "UTC",
         language: "en",
         currency: "USD",
@@ -142,8 +142,8 @@ export async function DELETE(req) {
         smtpPort: 587,
         smtpUser: "",
         smtpPassword: "",
-        fromEmail: "noreply@geeinnovations.com",
-        fromName: "Gee Innovations",
+        fromEmail: "noreply@geeinnovixus.com",
+        fromName: "GEE INNOVIXUS",
         enableNotifications: true,
       },
       security: {

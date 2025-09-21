@@ -119,7 +119,7 @@ export default function TermsOfServicePage() {
             </h2>
             <p className="text-gray-600 leading-relaxed">
               These Terms of Service (&quot;Terms&quot;) govern your use of Gee
-              Innovations&apos; website and services. By accessing or using our
+              INNOVIXUS&apos; website and services. By accessing or using our
               services, you agree to be bound by these Terms. If you disagree
               with any part of these terms, you may not access our services.
             </p>
@@ -171,7 +171,7 @@ export default function TermsOfServicePage() {
             </p>
             <div className="space-y-2 text-gray-600">
               <p>
-                <strong>Email:</strong> legal@geeinnovations.com
+                <strong>Email:</strong> legal@geeinnovixus.com
               </p>
               <p>
                 <strong>Phone:</strong> Available on WhatsApp

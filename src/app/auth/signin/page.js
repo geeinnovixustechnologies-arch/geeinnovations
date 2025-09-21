@@ -144,7 +144,7 @@ function SignInForm() {
               Welcome Back
             </h1>
             <p className="text-gray-600">
-              Sign in to your Gee Innovations account
+              Sign in to your GEE INNOVIXUS account
             </p>
           </div>
 

@@ -130,7 +130,7 @@ export default function HomePage() {
       company: "Massachusetts Institute of Technology",
       rating: 5,
       review:
-        "Gee Innovations helped me publish my research in a top-tier journal. Their expertise in AI and machine learning is exceptional.",
+        "GEE INNOVIXUS helped me publish my research in a top-tier journal. Their expertise in AI and machine learning is exceptional.",
       project: "AI-Powered Medical Diagnosis System",
     },
     {
@@ -175,7 +175,7 @@ export default function HomePage() {
               Innovating the Future with
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {" "}
-                Gee Innovations
+                GEE INNOVIXUS
               </span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
@@ -389,7 +389,7 @@ export default function HomePage() {
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
               Join thousands of students and researchers who have successfully
-              completed their projects with Gee Innovations.
+              completed their projects with GEE INNOVIXUS.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

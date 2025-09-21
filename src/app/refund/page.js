@@ -140,7 +140,7 @@ export default function RefundPolicyPage() {
               Our Refund Commitment
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              At Gee Innovations, we strive to provide exceptional service and
+              At GEE INNOVIXUS, we strive to provide exceptional service and
               ensure complete customer satisfaction. We understand that
               sometimes circumstances may require a refund, and we have
               established a fair and transparent refund policy to address such
@@ -298,7 +298,7 @@ export default function RefundPolicyPage() {
                   <div className="flex items-center">
                     <CreditCard className="h-5 w-5 text-blue-600 mr-3" />
                     <span className="text-gray-600">
-                      Email: refunds@geeinnovations.com
+                      Email: refunds@geeinnovixus.com
                     </span>
                   </div>
                   <div className="flex items-center">

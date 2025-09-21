@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
               Introduction
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              Gee Innovations (&quot;we,&quot; &quot;our,&quot; or
+              GEE INNOVIXUS (&quot;we,&quot; &quot;our,&quot; or
               &quot;us&quot;) is committed to protecting your privacy. This
               Privacy Policy explains how we collect, use, disclose, and
               safeguard your information when you visit our website or use our
@@ -143,7 +143,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="space-y-2 text-gray-600">
               <p>
-                <strong>Email:</strong> privacy@geeinnovations.com
+                <strong>Email:</strong> privacy@geeinnovixus.com
               </p>
               <p>
                 <strong>Phone:</strong> Available on WhatsApp

@@ -169,7 +169,7 @@ export default function AdminTestimonialsPage() {
       },
       rating: 5,
       review:
-        "Gee Innovations delivered an exceptional AI-powered medical diagnosis system that exceeded our expectations. The team's expertise in machine learning and medical imaging was evident throughout the project. The system is now being used in our research lab and has significantly improved our diagnostic accuracy.",
+        "GEE INNOVIXUS delivered an exceptional AI-powered medical diagnosis system that exceeded our expectations. The team's expertise in machine learning and medical imaging was evident throughout the project. The system is now being used in our research lab and has significantly improved our diagnostic accuracy.",
       isApproved: true,
       isFeatured: true,
       isPublic: true,
@@ -202,7 +202,7 @@ export default function AdminTestimonialsPage() {
       },
       rating: 5,
       review:
-        "The blockchain voting system developed by Gee Innovations was perfect for our university elections. It provided transparency, security, and ease of use. The team was professional, responsive, and delivered the project on time. Highly recommended for any blockchain development needs.",
+        "The blockchain voting system developed by GEE INNOVIXUS was perfect for our university elections. It provided transparency, security, and ease of use. The team was professional, responsive, and delivered the project on time. Highly recommended for any blockchain development needs.",
       isApproved: true,
       isFeatured: false,
       isPublic: true,

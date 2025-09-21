@@ -59,7 +59,7 @@ export default function Navigation() {
           <Link href="/" className="flex items-center">
             <div className="flex-shrink-0">
               <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Gee Innovations
+                GEE INNOVIXUS
               </h1>
             </div>
           </Link>

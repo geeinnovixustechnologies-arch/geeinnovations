@@ -244,7 +244,7 @@ export default function CookiePolicyPage() {
             </p>
             <div className="space-y-2 text-gray-600">
               <p>
-                <strong>Email:</strong> privacy@geeinnovations.com
+                <strong>Email:</strong> privacy@geeinnovixus.com
               </p>
               <p>
                 <strong>Phone:</strong> Available on WhatsApp

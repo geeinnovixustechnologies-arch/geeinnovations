@@ -77,7 +77,7 @@ export default function HelpCenterPage() {
       title: "Email Support",
       description: "Send us a detailed message",
       icon: Mail,
-      href: "mailto:support@geeinnovations.com",
+      href: "mailto:support@geeinnovixus.com",
       color: "bg-blue-600 hover:bg-blue-700",
     },
     {
@@ -292,7 +292,7 @@ export default function HelpCenterPage() {
               Chat on WhatsApp
             </a>
             <a
-              href="mailto:support@geeinnovations.com"
+              href="mailto:support@geeinnovixus.com"
               className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
             >
               <Mail className="h-5 w-5 mr-2" />

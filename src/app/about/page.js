@@ -71,7 +71,7 @@ export default function AboutPage() {
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            About Gee Innovations
+            About GEE INNOVIXUS
           </h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             We are a leading engineering consultancy firm dedicated to
@@ -143,7 +143,7 @@ export default function AboutPage() {
           </div>
           <div className="prose prose-lg max-w-none text-gray-600">
             <p className="mb-6">
-              Gee Innovations was established with a clear vision: to bridge the
+              GEE INNOVIXUS was established with a clear vision: to bridge the
               gap between academic knowledge and real-world engineering
               solutions. Our journey began when our founder, Dr. Swamy Venkata
               Naga Murali, recognized the need for comprehensive engineering
@@ -233,7 +233,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose Gee Innovations?
+              Why Choose GEE INNOVIXUS?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               What sets us apart in the engineering consultancy industry

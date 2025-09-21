@@ -21,7 +21,7 @@ export default function FAQPage() {
       icon: "❓",
       questions: [
         {
-          question: "What services does Gee Innovations offer?",
+          question: "What services does GEE INNOVIXUS offer?",
           answer:
             "We offer comprehensive engineering consultancy services including AI/ML projects, blockchain development, web development, research publications, assignment writing, and training programs across various engineering domains.",
         },
@@ -37,7 +37,7 @@ export default function FAQPage() {
         },
         {
           question:
-            "What makes Gee Innovations different from other consultancies?",
+            "What makes GEE INNOVIXUS different from other consultancies?",
           answer:
             "Our combination of academic expertise, industry experience, and commitment to innovation sets us apart. We provide end-to-end solutions with ongoing support and training.",
         },
@@ -262,7 +262,7 @@ export default function FAQPage() {
                 Chat on WhatsApp
               </a>
               <a
-                href="mailto:info@geeinnovations.com"
+                href="mailto:info@geeinnovixus.com"
                 className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Send Email

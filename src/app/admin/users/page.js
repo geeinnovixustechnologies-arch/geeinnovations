@@ -204,7 +204,7 @@ export default function AdminUsersPage() {
     {
       _id: "4",
       name: "Admin User",
-      email: "admin@geeinnovations.com",
+      email: "admin@geeinnovixus.com",
       phone: "+1234567893",
       role: "admin",
       avatar:

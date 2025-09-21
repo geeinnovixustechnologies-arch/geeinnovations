@@ -40,7 +40,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email",
-      details: ["info@geeinnovations.com"],
+      details: ["info@geeinnovixus.com"],
       description: "For detailed inquiries",
     },
     {
@@ -362,12 +362,12 @@ export default function ContactPage() {
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Gee Innovations Office Location - Hyderabad"
+                  title="GEE INNOVIXUS Office Location - Hyderabad"
                 ></iframe>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Gee Innovations Office
+                  GEE INNOVIXUS Office
                 </h3>
                 <div className="space-y-2 text-gray-600">
                   <div className="flex items-center">
@@ -391,7 +391,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center">
                     <Mail className="h-5 w-5 mr-2 text-blue-600" />
-                    <span>info@geeinnovations.com</span>
+                    <span>info@geeinnovixus.com</span>
                   </div>
                 </div>
               </div>

@@ -44,7 +44,7 @@ export const sendContactNotification = async (formData) => {
           
           <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
             <p style="color: #6b7280; font-size: 14px;">
-              This email was sent from the Gee Innovations website contact form.
+              This email was sent from the GEE INNOVIXUS website contact form.
             </p>
           </div>
         </div>
@@ -67,11 +67,11 @@ export const sendAutoReply = async (formData) => {
     const mailOptions = {
       from: process.env.EMAIL_FROM || process.env.EMAIL_SERVER_USER,
       to: formData.email,
-      subject: "Thank you for contacting Gee Innovations",
+      subject: "Thank you for contacting GEE INNOVIXUS",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: #2563eb; margin: 0;">Gee Innovations</h1>
+            <h1 style="color: #2563eb; margin: 0;">GEE INNOVIXUS</h1>
             <p style="color: #6b7280; margin: 5px 0 0 0;">Engineering Excellence</p>
           </div>
           
@@ -80,7 +80,7 @@ export const sendAutoReply = async (formData) => {
             
             <p>Dear ${formData.name},</p>
             
-            <p>Thank you for reaching out to Gee Innovations. We have received your message and will get back to you within 24 hours.</p>
+            <p>Thank you for reaching out to GEE INNOVIXUS. We have received your message and will get back to you within 24 hours.</p>
             
             <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #10b981;">
               <h3 style="color: #059669; margin-top: 0;">Your Message:</h3>
@@ -109,7 +109,7 @@ export const sendAutoReply = async (formData) => {
                 "+",
                 ""
               )}" style="color: #25d366;">${process.env.WHATSAPP_NUMBER}</a></p>
-              <p style="margin: 5px 0;"><strong>Email:</strong> info@geeinnovations.com</p>
+              <p style="margin: 5px 0;"><strong>Email:</strong> info@geeinnovixus.com</p>
               <p style="margin: 5px 0;"><strong>Address:</strong> 18-78/A, FLAT NO 304, KAMALA NIVAS, NEAR METRO PILLAR NO 1558, SAROORNAGAR, DILSUKHNAGAR, HYDERABAD–500060, TELANGANA, INDIA</p>
             </div>
           </div>
@@ -117,7 +117,7 @@ export const sendAutoReply = async (formData) => {
           <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
             <p style="color: #6b7280; font-size: 14px;">
               Best regards,<br>
-              <strong>Gee Innovations Team</strong>
+              <strong>GEE INNOVIXUS Team</strong>
             </p>
           </div>
         </div>

@@ -93,7 +93,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center mb-4">
               <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Gee Innovations
+                GEE INNOVIXUS
               </h2>
             </Link>
             <p className="text-gray-300 mb-6 max-w-md">
@@ -107,10 +107,10 @@ export default function Footer() {
               <div className="flex items-center text-gray-300">
                 <Mail className="h-5 w-5 mr-3 text-blue-400" />
                 <a
-                  href="mailto:info@geeinnovations.com"
+                  href="mailto:info@geeinnovixus.com"
                   className="hover:text-blue-400 transition-colors"
                 >
-                  info@geeinnovations.com
+                  info@geeinnovixus.com
                 </a>
               </div>
               <div className="flex items-center text-gray-300">
@@ -232,7 +232,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm">
-              © {currentYear} Gee Innovations. All rights reserved.
+              © {currentYear} GEE INNOVIXUS. All rights reserved.
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
