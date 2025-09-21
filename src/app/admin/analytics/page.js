@@ -40,12 +40,12 @@ export default function AdminAnalyticsPage() {
     overview: {
       totalUsers: 0,
       totalProjects: 0,
-      totalOrders: 0,
+      totalAccessRequests: 0,
       totalRevenue: 0,
       monthlyGrowth: {
         users: 0,
         projects: 0,
-        orders: 0,
+        accessRequests: 0,
         revenue: 0,
       },
     },
@@ -106,12 +106,12 @@ export default function AdminAnalyticsPage() {
     overview: {
       totalUsers: 1247,
       totalProjects: 89,
-      totalOrders: 156,
+      totalAccessRequests: 156,
       totalRevenue: 245000,
       monthlyGrowth: {
         users: 12.5,
         projects: 8.3,
-        orders: 15.2,
+        accessRequests: 15.2,
         revenue: 22.1,
       },
     },
@@ -299,9 +299,9 @@ export default function AdminAnalyticsPage() {
               bgColor: "bg-green-50",
             },
             {
-              title: "Total Orders",
-              value: formatNumber(analytics.overview.totalOrders),
-              growth: analytics.overview.monthlyGrowth.orders,
+              title: "Total Access Requests",
+              value: formatNumber(analytics.overview.totalAccessRequests),
+              growth: analytics.overview.monthlyGrowth.accessRequests,
               icon: Award,
               color: "text-purple-600",
               bgColor: "bg-purple-50",

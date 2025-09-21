@@ -3,7 +3,7 @@ import connectDB from "@/lib/mongodb";
 import User from "@/models/User";
 import Project from "@/models/Project";
 import Service from "@/models/Service";
-import Order from "@/models/Order";
+import AccessRequest from "@/models/AccessRequest";
 import Testimonial from "@/models/Testimonial";
 import Inquiry from "@/models/Inquiry";
 import { getServerSession } from "next-auth";
@@ -48,24 +48,23 @@ export async function GET(req) {
       totalUsers,
       totalProjects,
       totalServices,
-      totalOrders,
+      totalAccessRequests,
       totalTestimonials,
       totalInquiries,
     ] = await Promise.all([
       User.countDocuments(),
       Project.countDocuments(),
       Service.countDocuments(),
-      Order.countDocuments(),
+      AccessRequest.countDocuments(),
       Testimonial.countDocuments(),
       Inquiry.countDocuments(),
     ]);
 
-    // Calculate total revenue
-    const revenueResult = await Order.aggregate([
-      { $match: { status: { $in: ["completed", "delivered"] } } },
-      { $group: { _id: null, total: { $sum: "$budget.amount" } } },
-    ]);
-    const totalRevenue = revenueResult.length > 0 ? revenueResult[0].total : 0;
+    // Calculate total approved access requests (as a proxy for revenue)
+    const approvedRequests = await AccessRequest.countDocuments({
+      status: "approved",
+    });
+    const totalRevenue = approvedRequests * 1000; // Assuming 1000 per approved request
 
     // Get monthly growth data
     const lastMonth = new Date();
@@ -74,25 +73,19 @@ export async function GET(req) {
     const [
       lastMonthUsers,
       lastMonthProjects,
-      lastMonthOrders,
-      lastMonthRevenue,
+      lastMonthAccessRequests,
+      lastMonthApprovedRequests,
     ] = await Promise.all([
       User.countDocuments({ createdAt: { $lt: lastMonth } }),
       Project.countDocuments({ createdAt: { $lt: lastMonth } }),
-      Order.countDocuments({ createdAt: { $lt: lastMonth } }),
-      Order.aggregate([
-        {
-          $match: {
-            createdAt: { $lt: lastMonth },
-            status: { $in: ["completed", "delivered"] },
-          },
-        },
-        { $group: { _id: null, total: { $sum: "$budget.amount" } } },
-      ]),
+      AccessRequest.countDocuments({ createdAt: { $lt: lastMonth } }),
+      AccessRequest.countDocuments({
+        createdAt: { $lt: lastMonth },
+        status: "approved",
+      }),
     ]);
 
-    const lastMonthRevenueAmount =
-      lastMonthRevenue.length > 0 ? lastMonthRevenue[0].total : 0;
+    const lastMonthRevenueAmount = lastMonthApprovedRequests * 1000;
 
     const monthlyGrowth = {
       users:
@@ -103,9 +96,11 @@ export async function GET(req) {
         lastMonthProjects > 0
           ? ((totalProjects - lastMonthProjects) / lastMonthProjects) * 100
           : 0,
-      orders:
-        lastMonthOrders > 0
-          ? ((totalOrders - lastMonthOrders) / lastMonthOrders) * 100
+      accessRequests:
+        lastMonthAccessRequests > 0
+          ? ((totalAccessRequests - lastMonthAccessRequests) /
+              lastMonthAccessRequests) *
+            100
           : 0,
       revenue:
         lastMonthRevenueAmount > 0
@@ -124,40 +119,33 @@ export async function GET(req) {
       .select("title views")
       .lean();
 
-    // Get top services by order count
+    // Get top services by access request count
     const topServices = await Service.aggregate([
       { $match: { isActive: true } },
       {
         $lookup: {
-          from: "orders",
+          from: "accessrequests",
           localField: "_id",
           foreignField: "service",
-          as: "orders",
+          as: "accessRequests",
         },
       },
       {
         $addFields: {
-          orderCount: { $size: "$orders" },
-          totalRevenue: {
-            $sum: {
-              $map: {
-                input: "$orders",
-                as: "order",
-                in: {
-                  $cond: [
-                    { $eq: ["$$order.status", "completed"] },
-                    "$$order.budget.amount",
-                    0,
-                  ],
-                },
+          requestCount: { $size: "$accessRequests" },
+          approvedCount: {
+            $size: {
+              $filter: {
+                input: "$accessRequests",
+                cond: { $eq: ["$$this.status", "approved"] },
               },
             },
           },
         },
       },
-      { $sort: { orderCount: -1 } },
+      { $sort: { requestCount: -1 } },
       { $limit: 5 },
-      { $project: { name: 1, orderCount: 1, totalRevenue: 1 } },
+      { $project: { name: 1, requestCount: 1, approvedCount: 1 } },
     ]);
 
     // Get recent activity
@@ -168,7 +156,7 @@ export async function GET(req) {
         totalUsers,
         totalProjects,
         totalServices,
-        totalOrders,
+        totalAccessRequests,
         totalTestimonials,
         totalInquiries,
         totalRevenue,
@@ -232,12 +220,11 @@ async function getChartData(startDate, endDate) {
       { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 } },
     ]);
 
-    // Revenue data
-    const revenue = await Order.aggregate([
+    // Access request data
+    const accessRequests = await AccessRequest.aggregate([
       {
         $match: {
           createdAt: { $gte: startDate, $lte: endDate },
-          status: { $in: ["completed", "delivered"] },
         },
       },
       {
@@ -247,7 +234,12 @@ async function getChartData(startDate, endDate) {
             month: { $month: "$createdAt" },
             day: { $dayOfMonth: "$createdAt" },
           },
-          totalRevenue: { $sum: "$budget.amount" },
+          totalRequests: { $sum: 1 },
+          approvedRequests: {
+            $sum: {
+              $cond: [{ $eq: ["$status", "approved"] }, 1, 0],
+            },
+          },
         },
       },
       { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 } },
@@ -268,12 +260,13 @@ async function getChartData(startDate, endDate) {
         )}-${String(item._id.day).padStart(2, "0")}`,
         views: item.totalViews,
       })),
-      revenue: revenue.map((item) => ({
+      accessRequests: accessRequests.map((item) => ({
         date: `${item._id.year}-${String(item._id.month).padStart(
           2,
           "0"
         )}-${String(item._id.day).padStart(2, "0")}`,
-        revenue: item.totalRevenue,
+        requests: item.totalRequests,
+        approved: item.approvedRequests,
       })),
     };
   } catch (error) {
@@ -281,37 +274,41 @@ async function getChartData(startDate, endDate) {
     return {
       userGrowth: [],
       projectViews: [],
-      revenue: [],
+      accessRequests: [],
     };
   }
 }
 
 async function getRecentActivity() {
   try {
-    const [recentOrders, recentUsers, recentTestimonials, recentProjects] =
-      await Promise.all([
-        Order.find()
-          .sort({ createdAt: -1 })
-          .limit(3)
-          .populate("client", "name")
-          .lean(),
-        User.find().sort({ createdAt: -1 }).limit(3).lean(),
-        Testimonial.find().sort({ createdAt: -1 }).limit(3).lean(),
-        Project.find().sort({ createdAt: -1 }).limit(3).lean(),
-      ]);
+    const [
+      recentAccessRequests,
+      recentUsers,
+      recentTestimonials,
+      recentProjects,
+    ] = await Promise.all([
+      AccessRequest.find()
+        .sort({ createdAt: -1 })
+        .limit(3)
+        .populate("user", "name")
+        .lean(),
+      User.find().sort({ createdAt: -1 }).limit(3).lean(),
+      Testimonial.find().sort({ createdAt: -1 }).limit(3).lean(),
+      Project.find().sort({ createdAt: -1 }).limit(3).lean(),
+    ]);
 
     const activities = [];
 
-    // Add recent orders
-    recentOrders.forEach((order) => {
+    // Add recent access requests
+    recentAccessRequests.forEach((request) => {
       activities.push({
-        type: "order",
-        message: `New order received for ${
-          order.project ? "project" : "service"
+        type: "accessRequest",
+        message: `New access request for ${
+          request.project ? "project" : "service"
         }`,
-        timestamp: order.createdAt,
-        value: order.budget?.amount,
-        user: order.client?.name,
+        timestamp: request.createdAt,
+        status: request.status,
+        user: request.user?.name,
       });
     });
 

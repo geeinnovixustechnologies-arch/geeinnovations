@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertCircle, ArrowLeft, RefreshCw } from "lucide-react";
@@ -13,7 +14,8 @@ const errorMessages = {
   AccessDenied: "Access was denied. You may not have permission to sign in.",
   Verification: "The verification token has expired or has already been used.",
   Default: "An error occurred during authentication.",
-  OAuthAccountNotLinked: "This email is already associated with another account. Please sign in with your original method or contact support.",
+  OAuthAccountNotLinked:
+    "This email is already associated with another account. Please sign in with your original method or contact support.",
   OAuthCallback: "There was an error with the OAuth provider.",
   OAuthCreateAccount: "Could not create OAuth account.",
   EmailCreateAccount: "Could not create account with this email.",
@@ -24,7 +26,7 @@ const errorMessages = {
   SessionRequired: "Please sign in to access this page.",
 };
 
-export default function AuthErrorPage() {
+function AuthErrorForm() {
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
   const callbackUrl = searchParams.get("callbackUrl") || "/";
@@ -52,8 +54,9 @@ export default function AuthErrorPage() {
                 {error === "OAuthAccountNotLinked" && (
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                     <p className="text-sm text-blue-800">
-                      <strong>Solution:</strong> If you previously signed up with email/password, 
-                      please use that method instead. If you need help, contact our support team.
+                      <strong>Solution:</strong> If you previously signed up
+                      with email/password, please use that method instead. If
+                      you need help, contact our support team.
                     </p>
                   </div>
                 )}
@@ -127,5 +130,13 @@ export default function AuthErrorPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function AuthErrorPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AuthErrorForm />
+    </Suspense>
   );
 }

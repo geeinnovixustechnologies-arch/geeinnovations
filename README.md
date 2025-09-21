@@ -180,9 +180,8 @@ src/
 │   ├── User.js            # User model
 │   ├── Project.js         # Project model
 │   ├── Service.js         # Service model
-│   ├── Order.js           # Order model
+│   ├── AccessRequest.js   # Access Request model
 │   ├── Testimonial.js     # Testimonial model
-│   ├── Blog.js            # Blog model
 │   └── Inquiry.js         # Inquiry model
 └── middleware.js          # Next.js middleware
 ```

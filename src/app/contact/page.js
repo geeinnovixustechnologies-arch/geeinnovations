@@ -119,8 +119,8 @@ export default function ContactPage() {
               Get In Touch
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Ready to start your next project? We're here to help you bring
-              your ideas to life. Contact us today!
+              Ready to start your next project? We&apos;re here to help you
+              bring your ideas to life. Contact us today!
             </p>
 
             {/* WhatsApp CTA */}
@@ -177,7 +177,7 @@ export default function ContactPage() {
               Choose Your Preferred Contact Method
             </h2>
             <p className="text-lg text-gray-600">
-              We're here to help! Pick the way that works best for you.
+              We&apos;re here to help! Pick the way that works best for you.
             </p>
           </div>
 
@@ -500,7 +500,7 @@ export default function ContactPage() {
             <Card>
               <CardContent className="pt-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  What's the fastest way to get in touch?
+                  What&apos;s the fastest way to get in touch?
                 </h3>
                 <p className="text-gray-600">
                   WhatsApp is the fastest way to reach us! We typically respond
@@ -542,7 +542,8 @@ export default function ContactPage() {
                 <p className="text-gray-600">
                   Project timelines vary based on complexity. Simple projects
                   can take 1-2 weeks, while complex applications may take 2-6
-                  months. We'll provide a detailed timeline during consultation.
+                  months. We&apos;ll provide a detailed timeline during
+                  consultation.
                 </p>
               </CardContent>
             </Card>

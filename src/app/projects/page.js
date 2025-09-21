@@ -474,8 +474,8 @@ export default function ProjectsPage() {
                     No projects found
                   </h3>
                   <p className="text-gray-600 mb-6">
-                    We couldn't find any projects matching your criteria. Don't
-                    worry - we can create a custom project for you!
+                    We couldn&apos;t find any projects matching your criteria.
+                    Don&apos;t worry - we can create a custom project for you!
                   </p>
 
                   {/* Custom Project Request Section */}
@@ -483,12 +483,12 @@ export default function ProjectsPage() {
                     <div className="flex items-center justify-center mb-4">
                       <Lightbulb className="h-8 w-8 text-yellow-500 mr-2" />
                       <h4 className="text-lg font-semibold text-gray-900">
-                        Can't find what you're looking for?
+                        Can&apos;t find what you&apos;re looking for?
                       </h4>
                     </div>
                     <p className="text-gray-600 mb-6">
                       We specialize in creating custom projects tailored to your
-                      specific needs. Contact us and we'll help you build
+                      specific needs. Contact us and we&apos;ll help you build
                       exactly what you need!
                     </p>
                     <WhatsAppButton
@@ -498,7 +498,8 @@ export default function ProjectsPage() {
                       Contact Admin on WhatsApp
                     </WhatsAppButton>
                     <p className="text-xs text-gray-500 mt-3">
-                      We'll discuss your requirements and provide a custom quote
+                      We&apos;ll discuss your requirements and provide a custom
+                      quote
                     </p>
                   </div>
                 </div>

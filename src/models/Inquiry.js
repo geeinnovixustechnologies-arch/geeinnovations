@@ -156,8 +156,11 @@ const inquirySchema = new mongoose.Schema(
     followUpDate: {
       type: Date,
     },
-    convertedToOrder: {
-      orderId: { type: mongoose.Schema.Types.ObjectId, ref: "Order" },
+    convertedToAccessRequest: {
+      accessRequestId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "AccessRequest",
+      },
       convertedAt: Date,
     },
     isActive: {
@@ -222,4 +225,3 @@ const Inquiry =
   mongoose.models.Inquiry || mongoose.model("Inquiry", inquirySchema);
 
 export default Inquiry;
-

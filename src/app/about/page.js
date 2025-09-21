@@ -266,8 +266,8 @@ export default function AboutPage() {
                 Client-Centric
               </h3>
               <p className="text-gray-600">
-                We prioritize our clients' success and work closely with them
-                throughout the project lifecycle.
+                We prioritize our clients&apos; success and work closely with
+                them throughout the project lifecycle.
               </p>
             </div>
             <div className="bg-white rounded-lg p-6 shadow-lg">

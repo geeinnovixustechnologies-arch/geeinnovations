@@ -329,8 +329,8 @@ export default function HomePage() {
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Don't just take our word for it. Here's what students and
-              researchers say about our services.
+              Don&apos;t just take our word for it. Here&apos;s what students
+              and researchers say about our services.
             </p>
           </motion.div>
 
@@ -353,7 +353,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
-                  "{testimonial.review}"
+                  &quot;{testimonial.review}&quot;
                 </p>
                 <div className="border-t pt-4">
                   <div className="font-semibold text-gray-900">

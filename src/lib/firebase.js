@@ -97,11 +97,10 @@ export const trackFileDownload = (fileId, fileName, fileType) => {
   });
 };
 
-export const trackOrderCreation = (orderId, orderValue, currency) => {
-  logEvent("purchase", {
-    transaction_id: orderId,
-    value: orderValue,
-    currency: currency,
+export const trackAccessRequestCreation = (requestId, requestType) => {
+  logEvent("generate_lead", {
+    request_id: requestId,
+    request_type: requestType,
   });
 };
 
@@ -158,4 +157,3 @@ export const addTraceAttribute = (trace, attributeName, value) => {
     trace.putAttribute(attributeName, value);
   }
 };
-

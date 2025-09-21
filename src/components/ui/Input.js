@@ -1,6 +1,6 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const Input = React.forwardRef(({ className, type, ...props }, ref) => {
   return (
@@ -13,27 +13,8 @@ const Input = React.forwardRef(({ className, type, ...props }, ref) => {
       ref={ref}
       {...props}
     />
-  )
-})
-Input.displayName = "Input"
-
-export { Input }
-
-            endContent ? "pr-10" : ""
-          }`}
-          {...props}
-        />
-        {endContent && (
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-            {endContent}
-          </div>
-        )}
-      </div>
-      {isInvalid && errorMessage && (
-        <p className="mt-1 text-sm text-red-600">{errorMessage}</p>
-      )}
-    </div>
   );
-};
+});
+Input.displayName = "Input";
 
-export default Input;
+export { Input };

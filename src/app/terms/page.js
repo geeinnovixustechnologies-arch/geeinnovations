@@ -118,8 +118,8 @@ export default function TermsOfServicePage() {
               Agreement to Terms
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              These Terms of Service ("Terms") govern your use of Gee
-              Innovations' website and services. By accessing or using our
+              These Terms of Service (&quot;Terms&quot;) govern your use of Gee
+              Innovations&apos; website and services. By accessing or using our
               services, you agree to be bound by these Terms. If you disagree
               with any part of these terms, you may not access our services.
             </p>
@@ -192,9 +192,9 @@ export default function TermsOfServicePage() {
             <p className="text-gray-600">
               We reserve the right to modify these Terms at any time. We will
               notify users of any material changes by posting the new Terms on
-              this page and updating the "Last updated" date. Your continued use
-              of our services after any modifications constitutes acceptance of
-              the updated Terms.
+              this page and updating the &quot;Last updated&quot; date. Your
+              continued use of our services after any modifications constitutes
+              acceptance of the updated Terms.
             </p>
           </div>
         </div>

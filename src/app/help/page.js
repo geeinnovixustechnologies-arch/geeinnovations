@@ -265,7 +265,7 @@ export default function HelpCenterPage() {
           {filteredArticles.length === 0 && searchQuery && (
             <div className="text-center py-12">
               <p className="text-gray-600 text-lg">
-                No articles found for "{searchQuery}"
+                No articles found for &quot;{searchQuery}&quot;
               </p>
               <p className="text-gray-500 mt-2">
                 Try different keywords or browse our categories above

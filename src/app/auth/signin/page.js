@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { signIn, getSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -36,7 +36,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { toast } from "react-hot-toast";
 
-export default function SignInPage() {
+function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
@@ -276,7 +276,7 @@ export default function SignInPage() {
               {/* Additional Links */}
               <div className="text-center mt-6 pt-6 border-t border-gray-200">
                 <p className="text-sm text-gray-600">
-                  Don't have an account?{" "}
+                  Don&apos;t have an account?{" "}
                   <a
                     href="/auth/signup"
                     className="text-blue-600 hover:text-blue-800 font-medium"
@@ -318,7 +318,7 @@ export default function SignInPage() {
           <DialogHeader>
             <DialogTitle className="text-center">Welcome Back!</DialogTitle>
             <DialogDescription className="text-center">
-              You've been successfully signed in. Redirecting...
+              You&apos;ve been successfully signed in. Redirecting...
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col items-center space-y-4">
@@ -332,5 +332,13 @@ export default function SignInPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function SignInPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SignInForm />
+    </Suspense>
   );
 }

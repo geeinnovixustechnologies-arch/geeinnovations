@@ -12,9 +12,9 @@ const testimonialSchema = new mongoose.Schema(
       ref: "Project",
       required: false,
     },
-    orderId: {
+    accessRequestId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Order",
+      ref: "AccessRequest",
       required: false,
     },
     clientName: {
@@ -148,4 +148,3 @@ const Testimonial =
   mongoose.model("Testimonial", testimonialSchema);
 
 export default Testimonial;
-

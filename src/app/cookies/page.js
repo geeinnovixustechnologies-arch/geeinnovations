@@ -171,9 +171,9 @@ export default function CookiePolicyPage() {
                   Cookie Consent
                 </h3>
                 <p className="text-gray-600">
-                  When you first visit our website, you'll see a cookie consent
-                  banner. You can choose which types of cookies to accept or
-                  reject.
+                  When you first visit our website, you&apos;ll see a cookie
+                  consent banner. You can choose which types of cookies to
+                  accept or reject.
                 </p>
               </div>
               <div>
@@ -182,8 +182,8 @@ export default function CookiePolicyPage() {
                 </h3>
                 <p className="text-gray-600">
                   Some cookies are set by third-party services we use. You can
-                  manage these through the respective service providers' privacy
-                  settings.
+                  manage these through the respective service providers&apos;
+                  privacy settings.
                 </p>
               </div>
             </div>
