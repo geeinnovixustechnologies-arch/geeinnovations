@@ -7,7 +7,12 @@
  * @returns {string} WhatsApp number
  */
 export function getWhatsAppNumber() {
-  return process.env.WHATSAPP_NUMBER || "1234567890";
+  // For client-side, we need NEXT_PUBLIC_ prefix
+  return (
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ||
+    process.env.WHATSAPP_NUMBER ||
+    "+919515364654"
+  );
 }
 
 /**
@@ -64,4 +69,3 @@ export function createProjectMessage(project, type = "purchase") {
 export function createGeneralMessage(subject = "General Inquiry") {
   return `Hi! I have a question about ${subject}. Could you please help me?`;
 }
-

@@ -390,6 +390,26 @@ export const orderValidation = {
   }),
 };
 
+// Contact form validation schema (simple)
+export const contactValidation = {
+  create: Joi.object({
+    name: Joi.string().min(2).max(100).required().messages({
+      "string.min": "Name must be at least 2 characters long",
+      "string.max": "Name cannot exceed 100 characters",
+      "any.required": "Name is required",
+    }),
+    email: Joi.string().email().required().messages({
+      "string.email": "Please enter a valid email address",
+      "any.required": "Email is required",
+    }),
+    message: Joi.string().min(5).max(2000).required().messages({
+      "string.min": "Message must be at least 5 characters long",
+      "string.max": "Message cannot exceed 2000 characters",
+      "any.required": "Message is required",
+    }),
+  }),
+};
+
 // Inquiry validation schemas
 export const inquiryValidation = {
   create: Joi.object({
@@ -482,7 +502,6 @@ export const testimonialValidation = {
     projectCategory: Joi.string().min(1).max(100).optional(),
   }),
 };
-
 
 // File upload validation
 export const fileValidation = {

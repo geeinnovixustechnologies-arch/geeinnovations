@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb.js";
 import Inquiry from "@/models/Inquiry.js";
-import { inquiryValidation } from "@/lib/validations.js";
+import { contactValidation } from "@/lib/validations.js";
 import { trackContactForm } from "@/lib/firebase.js";
+import { sendContactNotification, sendAutoReply } from "@/lib/email.js";
 
 // POST /api/contact - Submit contact form
 export async function POST(request) {
@@ -12,21 +13,26 @@ export async function POST(request) {
     const body = await request.json();
 
     // Validate data
-    const validation = inquiryValidation.create.validate(body);
-    if (!validation.isValid) {
+    const validation = contactValidation.create.validate(body);
+    if (validation.error) {
       return NextResponse.json(
         {
           success: false,
           message: "Validation failed",
-          errors: validation.errors,
+          errors: validation.error.details.map((detail) => ({
+            field: detail.path.join("."),
+            message: detail.message,
+          })),
         },
         { status: 400 }
       );
     }
 
-    // Add metadata
+    // Add metadata and required fields for Inquiry model
     const inquiryData = {
-      ...validation.data,
+      ...validation.value,
+      subject: "Contact Form Inquiry", // Auto-generate subject
+      inquiryType: "general", // Default inquiry type
       metadata: {
         ipAddress:
           request.headers.get("x-forwarded-for") ||
@@ -43,8 +49,21 @@ export async function POST(request) {
     // Track analytics event
     trackContactForm(inquiryData.inquiryType, inquiryData.subject);
 
-    // TODO: Send email notification to admin
-    // TODO: Send auto-reply email to client
+    // Send email notification to admin
+    const adminEmailResult = await sendContactNotification({
+      name: inquiryData.name,
+      email: inquiryData.email,
+      message: inquiryData.message,
+    });
+
+    // Send auto-reply email to client
+    const autoReplyResult = await sendAutoReply({
+      name: inquiryData.name,
+      email: inquiryData.email,
+      message: inquiryData.message,
+    });
+
+    // Emails sent (success/failure logged internally)
 
     return NextResponse.json(
       {
@@ -69,4 +88,3 @@ export async function POST(request) {
     );
   }
 }
-
