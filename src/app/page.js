@@ -122,33 +122,33 @@ export default function HomePage() {
     },
   ];
 
-  // Fallback testimonials data
+  // Fallback testimonials data (India)
   const fallbackTestimonials = [
     {
-      name: "Sarah Johnson",
-      title: "PhD Student, MIT",
-      company: "Massachusetts Institute of Technology",
+      name: "Murali Krishna",
+      title: "M.Tech Student",
+      company: "JNTU Hyderabad",
       rating: 5,
       review:
-        "GEE INNOVIXUS helped me publish my research in a top-tier journal. Their expertise in AI and machine learning is exceptional.",
+        "GEE INNOVIXUS guided me end-to-end for my AI thesis and publication. The support was timely and the outcomes were excellent.",
       project: "AI-Powered Medical Diagnosis System",
     },
     {
-      name: "Michael Chen",
+      name: "Govardhan Reddy",
       title: "Software Engineer",
-      company: "Google",
+      company: "Hyderabad",
       rating: 5,
       review:
-        "The blockchain project they developed for my thesis was outstanding. Professional, timely, and exceeded expectations.",
+        "Their blockchain implementation for my academic project was robust and well-documented. Delivery was on schedule.",
       project: "Decentralized Voting System",
     },
     {
-      name: "Emily Rodriguez",
+      name: "Revanth Kumar",
       title: "Research Scholar",
-      company: "Stanford University",
+      company: "Osmania University",
       rating: 5,
       review:
-        "Their web development team created a beautiful, functional platform for my research data visualization project.",
+        "The team built a clean and scalable web platform for our research visualization. Great experience overall.",
       project: "Data Visualization Platform",
     },
   ];

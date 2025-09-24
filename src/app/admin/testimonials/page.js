@@ -152,10 +152,10 @@ export default function AdminTestimonialsPage() {
     {
       _id: "1",
       client: {
-        name: "John Doe",
-        email: "john@example.com",
-        company: "Tech Corp",
-        position: "CTO",
+        name: "Murali Krishna",
+        email: "murali.krishna@example.com",
+        company: "Hyderabad",
+        position: "M.Tech Student",
         avatar:
           "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
       },
@@ -169,7 +169,7 @@ export default function AdminTestimonialsPage() {
       },
       rating: 5,
       review:
-        "GEE INNOVIXUS delivered an exceptional AI-powered medical diagnosis system that exceeded our expectations. The team's expertise in machine learning and medical imaging was evident throughout the project. The system is now being used in our research lab and has significantly improved our diagnostic accuracy.",
+        "GEE INNOVIXUS delivered an excellent AI-powered diagnosis module for my thesis. Clear guidance, timely updates, and solid results.",
       isApproved: true,
       isFeatured: true,
       isPublic: true,
@@ -185,9 +185,9 @@ export default function AdminTestimonialsPage() {
     {
       _id: "2",
       client: {
-        name: "Sarah Johnson",
-        email: "sarah@university.edu",
-        company: "University of Technology",
+        name: "Govardhan Reddy",
+        email: "govardhan.reddy@example.com",
+        company: "Osmania University",
         position: "Research Scholar",
         avatar:
           "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
@@ -202,7 +202,7 @@ export default function AdminTestimonialsPage() {
       },
       rating: 5,
       review:
-        "The blockchain voting system developed by GEE INNOVIXUS was perfect for our university elections. It provided transparency, security, and ease of use. The team was professional, responsive, and delivered the project on time. Highly recommended for any blockchain development needs.",
+        "Secure and transparent blockchain voting prototype. Delivered on time with proper documentation.",
       isApproved: true,
       isFeatured: false,
       isPublic: true,
@@ -218,10 +218,10 @@ export default function AdminTestimonialsPage() {
     {
       _id: "3",
       client: {
-        name: "Mike Chen",
-        email: "mike@startup.com",
-        company: "StartupXYZ",
-        position: "Founder",
+        name: "Revanth Kumar",
+        email: "revanth.kumar@example.com",
+        company: "JNTU Hyderabad",
+        position: "Student",
         avatar:
           "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
       },
@@ -235,7 +235,7 @@ export default function AdminTestimonialsPage() {
       },
       rating: 4,
       review:
-        "Great consultation service! The team provided valuable insights into our e-commerce platform architecture. They were knowledgeable and gave us practical recommendations that we could implement immediately. The only reason for 4 stars instead of 5 is that we wished the consultation was longer.",
+        "Very helpful web architecture guidance for our project. Would love longer sessions next time.",
       isApproved: true,
       isFeatured: false,
       isPublic: true,

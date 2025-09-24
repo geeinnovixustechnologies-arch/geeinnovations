@@ -20,6 +20,7 @@ import {
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Head from "next/head";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -420,6 +421,42 @@ export default function TrainingPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Head>
+        <title>Training & Workshop | GEE INNOVIXUS</title>
+        <meta
+          name="description"
+          content="Hands-on workshops and certification programs across engineering domains. Schedule custom training with GEE INNOVIXUS."
+        />
+        <link
+          rel="canonical"
+          href={(process.env.APP_URL || "http://localhost:3000") + "/training"}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: process.env.APP_URL || "http://localhost:3000",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Training & Workshop",
+                  item:
+                    (process.env.APP_URL || "http://localhost:3000") +
+                    "/training",
+                },
+              ],
+            }),
+          }}
+        />
+      </Head>
       <Navigation />
 
       {/* Hero Section */}

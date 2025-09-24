@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
+import Head from "next/head";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
@@ -272,6 +273,42 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Head>
+        <title>Engineering Projects | GEE INNOVIXUS</title>
+        <meta
+          name="description"
+          content="Browse AI/ML, Blockchain, Web, IoT and more engineering projects with source, docs and guidance from GEE INNOVIXUS."
+        />
+        <link
+          rel="canonical"
+          href={(process.env.APP_URL || "http://localhost:3000") + "/projects"}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: process.env.APP_URL || "http://localhost:3000",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Projects",
+                  item:
+                    (process.env.APP_URL || "http://localhost:3000") +
+                    "/projects",
+                },
+              ],
+            }),
+          }}
+        />
+      </Head>
       <Navigation />
 
       {/* Hero Section */}

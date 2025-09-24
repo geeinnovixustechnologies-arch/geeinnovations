@@ -19,6 +19,7 @@ import {
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Head from "next/head";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -43,155 +44,114 @@ export default function ResearchPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedDomain, setSelectedDomain] = useState("all");
 
-  // Research & Development data based on client structure
+  // Research: engineering domains (Civil, Mechanical, Electrical, CSE, ECE)
   const mockResearch = useMemo(
     () => [
       {
-        _id: "1",
-        title: "Publication Services",
+        _id: "r1",
+        title: "Civil Engineering",
         description:
-          "Professional academic writing and publication support for research papers",
-        category: "Publication",
-        domain: "Academic Writing",
+          "Concrete technology, structural and geotechnical research domains",
+        category: "Engineering",
+        domain: "Civil",
         services: [
-          "Research Paper Writing",
-          "Journal Article Preparation",
-          "Conference Paper Writing",
-          "Literature Review",
-          "Data Analysis & Interpretation",
-          "Peer Review Support",
+          "3D Printing Concrete",
+          "Self Healing Bacterial Concrete",
+          "Ultra-High Performance Concrete",
+          "Geogrids in Concrete",
+          "Geopolymer Concrete",
         ],
-        features: [
-          "IEEE Format",
-          "APA Style",
-          "Plagiarism Check",
-          "Citation Management",
-        ],
-        deliveryTime: "2-4 weeks",
+        features: ["Design & Analysis", "Material Science"],
+        deliveryTime: "2-8 weeks",
         popularity: 95,
         rating: 4.8,
-        icon: "📝",
+        icon: "🏗️",
         color: "primary",
       },
       {
-        _id: "2",
-        title: "Patent Services",
+        _id: "r2",
+        title: "Mechanical Engineering",
         description:
-          "Complete patent filing and intellectual property protection services",
-        category: "Patent",
-        domain: "Intellectual Property",
+          "Design, simulation, advanced manufacturing and thermal analysis",
+        category: "Engineering",
+        domain: "Mechanical",
         services: [
-          "Patent Drafting",
-          "Patent Filing",
-          "Patent Search",
-          "Patent Analysis",
-          "Prior Art Search",
-          "Patent Portfolio Management",
+          "3D Printing (FDM)",
+          "Thermal 3D Printing",
+          "Materials & Metallurgy",
+          "Advanced Manufacturing",
+          "Simulation",
         ],
-        features: [
-          "USPTO Filing",
-          "International Patents",
-          "Patent Landscape Analysis",
-        ],
-        deliveryTime: "4-8 weeks",
+        features: ["Solidworks", "ANSYS", "Abaqus"],
+        deliveryTime: "3-10 weeks",
         popularity: 88,
         rating: 4.7,
-        icon: "⚖️",
+        icon: "⚙️",
         color: "secondary",
       },
       {
-        _id: "3",
-        title: "Plagiarism Checker",
-        description:
-          "Advanced plagiarism detection and similarity analysis tools",
-        category: "Quality Assurance",
-        domain: "Content Analysis",
+        _id: "r3",
+        title: "Electrical & Electronic Engineering",
+        description: "Power systems, electronics, control and communication",
+        category: "Engineering",
+        domain: "EEE",
         services: [
-          "Plagiarism Detection",
-          "Similarity Analysis",
-          "Citation Verification",
-          "Originality Reports",
-          "Bulk Document Checking",
-          "Real-time Checking",
+          "Power Systems",
+          "Power Electronics",
+          "Microelectronics & VLSI",
+          "Control Systems",
+          "Signal Processing",
+          "Machine Learning",
+          "Communication Systems",
         ],
-        features: [
-          "Multiple Databases",
-          "Detailed Reports",
-          "Citation Analysis",
-        ],
-        deliveryTime: "1-2 days",
+        features: ["MATLAB", "Embedded", "RF"],
+        deliveryTime: "2-6 weeks",
         popularity: 92,
         rating: 4.9,
-        icon: "🔍",
+        icon: "⚡",
         color: "success",
       },
       {
-        _id: "4",
-        title: "Manuscript Preparation",
+        _id: "r4",
+        title: "Computer Science Engineering",
         description:
-          "Professional manuscript preparation and paper writing services",
-        category: "Writing",
-        domain: "Academic Support",
+          "Software engineering, AI/ML, data science and cybersecurity",
+        category: "Engineering",
+        domain: "CSE",
         services: [
-          "Manuscript Writing",
-          "Paper Structure Design",
-          "Abstract Writing",
-          "Introduction & Conclusion",
-          "Methodology Section",
-          "Results & Discussion",
+          "Software Development",
+          "Machine Learning",
+          "Data Science",
+          "Computer Networks",
+          "Cybersecurity",
         ],
-        features: ["Multiple Formats", "Expert Review", "Revision Support"],
-        deliveryTime: "3-6 weeks",
+        features: ["Programming", "Databases"],
+        deliveryTime: "2-8 weeks",
         popularity: 90,
         rating: 4.8,
-        icon: "📄",
+        icon: "💻",
         color: "warning",
       },
       {
-        _id: "5",
-        title: "PhD Assistance",
-        description: "Comprehensive PhD research support and guidance services",
-        category: "Academic Support",
-        domain: "Research Guidance",
+        _id: "r5",
+        title: "Electronic Communication Engineering",
+        description: "Communication systems, embedded and IoT research",
+        category: "Engineering",
+        domain: "ECE",
         services: [
-          "Thesis Writing",
-          "Research Proposal",
-          "Literature Review",
-          "Data Collection Support",
-          "Statistical Analysis",
-          "Viva Preparation",
+          "Communication Systems",
+          "Embedded Systems & IoT",
+          "Signal Processing",
+          "Power Electronics",
+          "RF & Microwave",
+          "Nanotechnology",
         ],
-        features: [
-          "One-on-One Mentoring",
-          "Progress Tracking",
-          "Deadline Management",
-        ],
-        deliveryTime: "6-12 months",
+        features: ["Wireless", "Optical"],
+        deliveryTime: "2-6 weeks",
         popularity: 85,
         rating: 4.6,
-        icon: "🎓",
+        icon: "📡",
         color: "primary",
-      },
-      {
-        _id: "6",
-        title: "Prototyping Services",
-        description: "Rapid prototyping and product development support",
-        category: "Development",
-        domain: "Product Design",
-        services: [
-          "3D Prototyping",
-          "CAD Design",
-          "Material Selection",
-          "Testing & Validation",
-          "Iterative Design",
-          "Manufacturing Support",
-        ],
-        features: ["Multiple Materials", "Fast Turnaround", "Quality Testing"],
-        deliveryTime: "2-4 weeks",
-        popularity: 82,
-        rating: 4.7,
-        icon: "🔧",
-        color: "success",
       },
     ],
     []
@@ -274,6 +234,42 @@ export default function ResearchPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Head>
+        <title>Research & Development | GEE INNOVIXUS</title>
+        <meta
+          name="description"
+          content="Publication support, patents, plagiarism check, manuscript prep, PhD assistance, and prototyping services by GEE INNOVIXUS."
+        />
+        <link
+          rel="canonical"
+          href={(process.env.APP_URL || "http://localhost:3000") + "/research"}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: process.env.APP_URL || "http://localhost:3000",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Research & Development",
+                  item:
+                    (process.env.APP_URL || "http://localhost:3000") +
+                    "/research",
+                },
+              ],
+            }),
+          }}
+        />
+      </Head>
       <Navigation />
 
       {/* Hero Section */}

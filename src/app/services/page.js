@@ -16,6 +16,7 @@ import { Search, Filter, Star, Clock, Tag } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Head from "next/head";
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { GridPattern } from "@/components/ui/grid-pattern";
@@ -29,253 +30,133 @@ export default function ServicesPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("popularity");
 
-  // Engineering services data based on client structure
+  // Services offerings only (no engineering domains)
   const mockServices = useMemo(
     () => [
-      // Civil Engineering
       {
-        _id: "1",
-        name: "Civil Engineering",
+        _id: "s1",
+        name: "Publication Services",
         description:
-          "Comprehensive civil engineering solutions including concrete technology and structural design",
-        category: "Engineering",
-        subcategory: "Civil",
+          "Professional academic writing and publication support for research papers",
+        category: "Publication",
+        subcategory: "Academic Writing",
         domains: [
-          "3D Printing Concrete",
-          "Self Healing Bacterial Concrete",
-          "Ultra-High Performance Concrete",
-          "Geogrids in Concrete",
-          "Geopolymer Concrete",
+          "Research Paper Writing",
+          "Journal Article Preparation",
+          "Conference Paper Writing",
+          "Literature Review",
+          "Data Analysis & Interpretation",
+          "Peer Review Support",
         ],
-        features: [
-          "Design & Analysis Software",
-          "Concrete Technology",
-          "Structural Engineering",
-          "Geotechnical Engineering",
-          "Transportation Engineering",
-          "Construction Management",
-          "Environmental Engineering",
-        ],
-        deliveryTime: "2-8 weeks",
+        features: ["IEEE/APA Formatting", "Plagiarism Check", "Citations"],
+        deliveryTime: "2-4 weeks",
         popularity: 95,
         rating: 4.8,
-        icon: "🏗️",
+        icon: "📝",
         color: "primary",
       },
-      // Mechanical Engineering
       {
-        _id: "2",
-        name: "Mechanical Engineering",
+        _id: "s2",
+        name: "Patent Services",
         description:
-          "Advanced mechanical engineering services including 3D printing and simulation",
-        category: "Engineering",
-        subcategory: "Mechanical",
+          "Complete patent filing and intellectual property protection services",
+        category: "Patent",
+        subcategory: "IP",
         domains: [
-          "3D Printing (FDM)",
-          "Thermal 3D Printing",
-          "Materials & Metallurgy",
-          "Advanced Manufacturing",
-          "Simulation",
+          "Patent Drafting",
+          "Patent Filing",
+          "Patent Search",
+          "Prior Art Search",
+          "Patent Analysis",
         ],
-        features: [
-          "Solidworks",
-          "NX",
-          "Rhinoceros",
-          "CATIA",
-          "AutoCAD",
-          "Fusion 360",
-          "Inventor",
-          "ANSYS",
-          "Altair Inspire",
-          "Abaqus",
-          "Comsol",
-        ],
-        deliveryTime: "3-10 weeks",
+        features: ["USPTO Filing", "International Patents"],
+        deliveryTime: "4-8 weeks",
         popularity: 88,
         rating: 4.7,
-        icon: "⚙️",
+        icon: "⚖️",
         color: "secondary",
       },
-      // Electrical & Electronic Engineering
       {
-        _id: "3",
-        name: "Electrical & Electronic Engineering",
+        _id: "s3",
+        name: "Plagiarism Checker",
         description:
-          "Power systems, electronics, and communication engineering solutions",
-        category: "Engineering",
-        subcategory: "Electrical",
+          "Advanced plagiarism detection and similarity analysis for academic work",
+        category: "Quality Assurance",
+        subcategory: "Research Support",
         domains: [
-          "Power Systems",
-          "Power Electronics",
-          "Microelectronics & VLSI",
-          "Control Systems",
-          "Signal Processing",
-          "Machine Learning",
-          "Communication Systems",
+          "Plagiarism Detection",
+          "Similarity Analysis",
+          "Citation Verification",
+          "Originality Reports",
         ],
-        features: [
-          "MATLAB",
-          "EVs",
-          "Embedded Systems",
-          "VLSI Design",
-          "RF & Microwave",
-          "Nanotechnology",
-        ],
-        deliveryTime: "2-6 weeks",
+        features: ["Multiple Databases", "Detailed Reports"],
+        deliveryTime: "1-2 days",
         popularity: 92,
         rating: 4.9,
-        icon: "⚡",
+        icon: "🔍",
         color: "success",
       },
-      // Computer Science Engineering
       {
-        _id: "4",
-        name: "Computer Science Engineering",
+        _id: "s4",
+        name: "Manuscript Preparation",
         description:
-          "Software development, AI/ML, and computer systems engineering",
-        category: "Engineering",
-        subcategory: "Computer Science",
+          "Professional manuscript preparation and journal submission support",
+        category: "Writing",
+        subcategory: "Academic Support",
         domains: [
-          "Software Development",
-          "Machine Learning",
-          "Data Science",
-          "Computer Networks",
-          "Cybersecurity",
+          "Paper Structure",
+          "Abstract & Conclusion",
+          "Methodology",
+          "Results & Discussion",
+          "Journal Guidelines",
         ],
-        features: [
-          "MATLAB",
-          "EVs",
-          "Embedded Systems",
-          "VLSI",
-          "Programming Languages",
-          "Database Systems",
-        ],
-        deliveryTime: "2-8 weeks",
+        features: ["Multiple Formats", "Expert Review", "Revisions"],
+        deliveryTime: "3-6 weeks",
         popularity: 90,
         rating: 4.8,
-        icon: "💻",
+        icon: "📄",
         color: "warning",
       },
-      // Electronic Communication Engineering
       {
-        _id: "5",
-        name: "Electronic Communication Engineering",
-        description:
-          "Communication systems, embedded systems, and IoT solutions",
-        category: "Engineering",
-        subcategory: "Communication",
+        _id: "s5",
+        name: "PhD Assistance",
+        description: "Comprehensive PhD research support and guidance",
+        category: "Academic Support",
+        subcategory: "Research Guidance",
         domains: [
-          "MATLAB",
-          "Microelectronics & VLSI",
-          "Communication Systems",
-          "Embedded Systems & IoT",
-          "Signal Processing",
-          "Power Electronics",
-          "RF & Microwave",
-          "Nanotechnology",
+          "Thesis Writing",
+          "Research Proposal",
+          "Literature Review",
+          "Data Collection Support",
+          "Statistical Analysis",
+          "Viva Preparation",
         ],
-        features: [
-          "VLSI",
-          "Embedded Systems",
-          "EVs",
-          "MATLAB",
-          "Wireless Communication",
-          "Optical Communication",
-        ],
-        deliveryTime: "2-6 weeks",
+        features: ["Mentoring", "Progress Tracking", "Deadlines"],
+        deliveryTime: "6-12 months",
         popularity: 85,
         rating: 4.6,
-        icon: "📡",
+        icon: "🎓",
         color: "primary",
       },
-      // Research & Development
       {
-        _id: "6",
-        name: "Research & Development",
-        description: "Innovative research solutions and development services",
-        category: "Research",
-        subcategory: "R&D",
+        _id: "s6",
+        name: "Prototyping Services",
+        description: "Rapid prototyping and product development support",
+        category: "Development",
+        subcategory: "Product Design",
         domains: [
-          "Publication",
-          "Patents",
-          "Plagiarism Checker",
-          "Manuscript Preparation",
-          "PhD Assistance",
-          "Prototyping",
+          "3D Prototyping",
+          "CAD Design",
+          "Material Selection",
+          "Testing & Validation",
+          "Iterative Design",
         ],
-        features: [
-          "Research Methodology",
-          "Data Analysis",
-          "Technical Writing",
-          "Patent Filing",
-          "Academic Support",
-        ],
-        deliveryTime: "4-12 weeks",
+        features: ["Fast Turnaround", "Quality Testing"],
+        deliveryTime: "2-4 weeks",
         popularity: 82,
         rating: 4.7,
-        icon: "🔬",
+        icon: "🔧",
         color: "success",
-      },
-      // Software Training
-      {
-        _id: "7",
-        name: "Software Training",
-        description: "Professional training in engineering and design software",
-        category: "Training",
-        subcategory: "Software",
-        domains: [
-          "Tekla",
-          "Revit",
-          "STAAD.Pro",
-          "ETABS",
-          "AutoCAD",
-          "SketchUp",
-          "SAP2000",
-          "Abaqus",
-          "Primavera",
-          "BIM",
-          "SPSS",
-          "3ds Max",
-          "Midas",
-          "MX Road",
-        ],
-        features: [
-          "Hands-on Training",
-          "Project-based Learning",
-          "Certification",
-          "Industry Standards",
-        ],
-        deliveryTime: "1-4 weeks",
-        popularity: 78,
-        rating: 4.5,
-        icon: "🎓",
-        color: "secondary",
-      },
-      // MBA & MCA
-      {
-        _id: "8",
-        name: "MBA & MCA Support",
-        description: "Business and computer applications support services",
-        category: "Education",
-        subcategory: "MBA/MCA",
-        domains: [
-          "Business Analysis",
-          "Project Management",
-          "Software Development",
-          "Database Management",
-          "System Analysis",
-        ],
-        features: [
-          "Case Study Analysis",
-          "Project Guidance",
-          "Technical Support",
-          "Academic Writing",
-        ],
-        deliveryTime: "2-8 weeks",
-        popularity: 75,
-        rating: 4.4,
-        icon: "📊",
-        color: "warning",
       },
     ],
     []
@@ -369,6 +250,42 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Head>
+        <title>Engineering Services | GEE INNOVIXUS</title>
+        <meta
+          name="description"
+          content="Civil, Mechanical, Electrical, Computer Science, R&D, and Training services from GEE INNOVIXUS. Expert guidance, projects, and publication support."
+        />
+        <link
+          rel="canonical"
+          href={(process.env.APP_URL || "http://localhost:3000") + "/services"}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: process.env.APP_URL || "http://localhost:3000",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Services",
+                  item:
+                    (process.env.APP_URL || "http://localhost:3000") +
+                    "/services",
+                },
+              ],
+            }),
+          }}
+        />
+      </Head>
       <Navigation />
 
       {/* Hero Section */}
@@ -383,12 +300,12 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedGradientText>
             <span className="inline-flex animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent text-4xl md:text-6xl font-bold mb-6">
-              Our Engineering Services
+              Our Services
             </span>
           </AnimatedGradientText>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/90">
-            Professional engineering solutions across Civil, Mechanical,
-            Electrical, and Computer Science domains
+            Publication, patents, plagiarism checks, manuscript prep, PhD
+            assistance, and rapid prototyping
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <ShimmerButton className="text-lg px-8 py-1 text-white">
@@ -561,8 +478,8 @@ export default function ServicesPage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-white/90">
-            Contact us today to discuss your engineering project requirements
-            and get a custom quote.
+            Contact us to discuss your service requirements and get a custom
+            quote.
           </p>
           <div className="flex justify-center">
             <WhatsAppButton

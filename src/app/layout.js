@@ -6,8 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title:
-    "GEE INNOVIXUS - Academic Project Consultancy & Research Publication",
+  title: "GEE INNOVIXUS - Academic Project Consultancy & Research Publication",
   description:
     "Leading academic project consultancy and research publication services. We transform your ideas into groundbreaking solutions with cutting-edge technology including AI, Blockchain, Web Development, and more.",
   keywords:
@@ -15,6 +14,8 @@ export const metadata = {
   authors: [{ name: "GEE INNOVIXUS" }],
   creator: "GEE INNOVIXUS",
   publisher: "GEE INNOVIXUS",
+  applicationName: "GEE INNOVIXUS",
+  category: "Education",
   formatDetection: {
     email: false,
     address: false,
@@ -24,6 +25,12 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title:
       "GEE INNOVIXUS - Academic Project Consultancy & Research Publication",
@@ -61,12 +68,79 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+  },
+};
+
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b1220" },
+  ],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        {/* Organization JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "GEE INNOVIXUS",
+              url: process.env.APP_URL || "http://localhost:3000",
+              logo: "/og-image.jpg",
+              sameAs: [],
+              address: {
+                "@type": "PostalAddress",
+                streetAddress:
+                  "18-78/A, FLAT NO 304, KAMALA NIVAS, NEAR METRO PILLAR NO 1558, SAROORNAGAR, DILSUKHNAGAR",
+                addressLocality: "Hyderabad",
+                addressRegion: "Telangana",
+                postalCode: "500060",
+                addressCountry: "IN",
+              },
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  contactType: "customer support",
+                  areaServed: "IN",
+                  availableLanguage: ["English", "Telugu", "Hindi"],
+                },
+              ],
+            }),
+          }}
+        />
+        {/* Site Navigation JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SiteNavigationElement",
+              name: [
+                "Research & Development",
+                "Projects",
+                "Services",
+                "Courses",
+                "Training & Workshop",
+                "Contact",
+              ],
+              url: [
+                "/research",
+                "/projects",
+                "/services",
+                "/courses",
+                "/training",
+                "/contact",
+              ],
+            }),
+          }}
+        />
         <Providers>{children}</Providers>
         <SpeedInsights />
       </body>
