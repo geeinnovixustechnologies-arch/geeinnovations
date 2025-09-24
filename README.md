@@ -1,5 +1,7 @@
 # Gee Innovations - Academic Project Consultancy Platform
 
+
+
 A comprehensive web application for academic project consultancy and research publication services, built with Next.js 14, MongoDB, and modern web technologies.
 
 ## 🚀 Features
