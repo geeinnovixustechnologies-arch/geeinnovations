@@ -54,10 +54,10 @@ export default function CertificationDetailPage({ params }) {
     const formatDate = (d) =>
         d
             ? new Date(d).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-              })
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            })
             : "N/A";
 
     const calculateProgress = (start, end, issued) => {
@@ -92,9 +92,10 @@ export default function CertificationDetailPage({ params }) {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-gray-600">
-                                    We couldn't find a certification with ID {" "}
+                                    We couldn&apos;t find a certification with ID{" "}
                                     <span className="font-semibold text-blue-700">{params?.id}</span>.
                                 </p>
+
                             </CardContent>
                         </Card>
                     ) : (
