@@ -25,7 +25,7 @@ export default function CertificationDetailPage({ params }) {
         },
         {
             id: "GI-2025-MR02",
-            studentName: "Deepak Prajapathi",
+            studentName: "Deepak Prajapati",
             domain: "Full Stack Development",
             duration: "90+ Hours (Oct 1st 2025 - Nov 2025)",
             status: "verified",
