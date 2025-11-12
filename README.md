@@ -1,4 +1,4 @@
-# Gee Innovations - Academic Project Consultancy Platform
+# Gee Innovixus - Academic Project Consultancy Platform
 
 
 
@@ -309,4 +309,4 @@ For support, email support@geeinnovations.com or create an issue in the reposito
 
 ---
 
-**Gee Innovations** - Transforming ideas into groundbreaking solutions with cutting-edge technology.
+**Gee Innovixus** - Transforming ideas into groundbreaking solutions with cutting-edge technology.
