@@ -177,32 +177,32 @@ export default function ProjectsPage() {
     },
   ];
 
-  useEffect(() => {
-    // Simulate API call
-    const fetchProjects = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch("/api/projects");
-        const data = await response.json();
-        setProjects(data.projects || []);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-        // Fallback to mock data
-        setProjects(mockProjects);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   // Simulate API call
+  //   const fetchProjects = async () => {
+  //     setLoading(true);
+  //     try {
+  //       const response = await fetch("/api/projects");
+  //       const data = await response.json();
+  //       setProjects(data.projects || []);
+  //     } catch (error) {
+  //       console.error("Error fetching projects:", error);
+  //       // Fallback to mock data
+  //       setProjects(mockProjects);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchProjects();
-  }, [
-    searchTerm,
-    selectedCategory,
-    selectedDomain,
-    selectedDifficulty,
-    sortBy,
-    sortOrder,
-  ]);
+  //   fetchProjects();
+  // }, [
+  //   searchTerm,
+  //   selectedCategory,
+  //   selectedDomain,
+  //   selectedDifficulty,
+  //   sortBy,
+  //   sortOrder,
+  // ]);
 
   const filteredProjects = projects.filter((project) => {
     const matchesSearch =

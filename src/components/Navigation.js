@@ -131,6 +131,7 @@ export default function Navigation() {
                     </Link>
                     <button
                       onClick={() => signOut()}
+                      disabled
                       className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       <LogOut className="h-4 w-4 mr-3" />
@@ -142,12 +143,13 @@ export default function Navigation() {
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => signIn()}
+                    disabled
                     className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
                   >
                     Sign In
                   </button>
                   <Link
-                    href="/auth/signup"
+                    href="/"
                     className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
                   >
                     Get Started
