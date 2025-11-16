@@ -57,7 +57,7 @@ export default function CertificationDetailPage({ params }) {
             endDate: "2025-11-01T00:00:00.000Z",
             issuedAt: "2025-11-06T00:00:00.000Z",
             provider: "Gee Innovixus Technologies (OPC) Pvt Ltd",
-            certificateId: "GI-2025-MR03",
+            certificateId: "GI-2025-MR04",
         }
     ];
 
