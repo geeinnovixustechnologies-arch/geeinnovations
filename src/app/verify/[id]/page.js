@@ -58,6 +58,18 @@ export default function CertificationDetailPage({ params }) {
             issuedAt: "2025-11-06T00:00:00.000Z",
             provider: "Gee Innovixus Technologies (OPC) Pvt Ltd",
             certificateId: "GI-2025-MR04",
+        },
+        {
+            id: "GI-2025-MR05",
+            studentName: "Juturi Shreeja",
+            domain: "Full Stack Development",
+            duration: "90+ Hours (Oct 1st 2025 - Nov 2025)",
+            status: "verified",
+            startDate: "2025-10-01T00:00:00.000Z",
+            endDate: "2025-11-01T00:00:00.000Z",
+            issuedAt: "2025-11-06T00:00:00.000Z",
+            provider: "Gee Innovixus Technologies (OPC) Pvt Ltd",
+            certificateId: "GI-2025-MR05",
         }
     ];
 
